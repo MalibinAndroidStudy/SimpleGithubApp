@@ -5,12 +5,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".main.MainActivity">
 
     <ImageView
         android:id="@+id/img_profile"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="26dp"
@@ -18,18 +18,19 @@
         app:layout_constraintBottom_toTopOf="@+id/tabLayout"
         app:layout_constraintEnd_toStartOf="@+id/txt_user_name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@color/colorAccent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txt_organizations"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="2dp"
         android:layout_marginBottom="5dp"
         android:ems="10"
+        android:includeFontPadding="false"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:text="organizations"
+        android:textColor="@color/colorBlack"
         app:layout_constraintBottom_toTopOf="@+id/rv_organizations"
         app:layout_constraintStart_toStartOf="@+id/txt_user_name"
         app:layout_constraintTop_toBottomOf="@+id/txt_user_name" />
@@ -37,7 +38,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_organizations"
         android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,10 +50,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="2dp"
         android:ems="10"
+        android:fontFamily="sans-serif-medium"
+        android:includeFontPadding="false"
         android:inputType="textPersonName"
-        android:text="userName"
+        android:text="yowol66"
+        android:textColor="@color/colorBlack"
         app:layout_constraintBottom_toTopOf="@+id/txt_organizations"
         app:layout_constraintStart_toEndOf="@+id/img_profile"
         app:layout_constraintTop_toTopOf="@+id/img_profile" />
