@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.withsopt">
+    package="com.example.cadi_kotlin_study">
 
     <application
         android:allowBackup="true"
@@ -9,16 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".feature.git_repo_list.GitRepoListActivity" />
+        <activity android:name=".feature.repository_list.RepoListActivity"></activity>
         <activity android:name=".feature.follower_list.FollowerListActivity" />
-        <activity android:name=".feature.sign_up.SignUpActivity" />
-        <activity android:name=".feature.sign_in.SignInActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".feature.Login.SignInActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity android:name=".feature.Login.SignUpActivity" />
+        <activity android:name=".MainActivity">
         </activity>
     </application>
 
