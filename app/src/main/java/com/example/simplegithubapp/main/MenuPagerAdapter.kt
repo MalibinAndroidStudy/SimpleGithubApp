@@ -10,20 +10,11 @@ import com.example.simplegithubapp.follow.FollowersFragment
 import com.example.simplegithubapp.overview.OverviewFragment
 
 class MenuPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
-    var overview:Fragment=
-        OverviewFragment()
-    var repositories:Fragment=
-        RepositoriesFragment()
-    var projects:Fragment= ProjectsFragment()
-    var followers:Fragment=
-        FollowersFragment()
-    var following:Fragment=
-        FollowingFragment()
 
-    var mData:ArrayList<Fragment> = arrayListOf(overview,repositories,projects,followers,following)
+    lateinit var mData: ArrayList<Fragment>
 
     override fun getItem(position: Int): Fragment {
-        return mData.get(position)
+        return mData[position]
     }
 
     override fun getCount(): Int {

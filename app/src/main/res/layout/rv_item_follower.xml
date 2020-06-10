@@ -3,7 +3,7 @@
     <data>
         <variable
             name="rvFollow"
-            type="com.example.simplegithubapp.follow.RvFollowData" />
+            type="com.example.simplegithubapp.follow.RvItemFollow" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"

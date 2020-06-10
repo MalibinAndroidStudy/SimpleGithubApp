@@ -7,12 +7,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.simplegithubapp.databinding.RvItemFollowerBinding
 
 
-class FollowAdapter(private val context: Context): RecyclerView.Adapter<FollowHolder>(){
-    lateinit var data:ArrayList<RvFollowData>
+class FollowAdapter(private val context: Context) : RecyclerView.Adapter<FollowHolder>() {
+    lateinit var data: ArrayList<RvItemFollow>
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FollowHolder {
-        val layoutInflater=LayoutInflater.from(parent.context)
-        val binding= RvItemFollowerBinding.inflate(layoutInflater)
+        val layoutInflater = LayoutInflater.from(parent.context)
+        val binding = RvItemFollowerBinding.inflate(layoutInflater)
         return FollowHolder(binding)
     }
 
