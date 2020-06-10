@@ -6,22 +6,23 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cadi_kotlin_study.R
 import com.example.cadi_kotlin_study.data.repository.RepoItem
+import com.example.cadi_kotlin_study.databinding.RvItemRepoBinding
 
-class GitRepoAdapter (private val context: Context) : RecyclerView.Adapter<GitRepoViewHolder>(){
+class RepoAdapter(private val context: Context?) : RecyclerView.Adapter<RepoViewHolder>(){
 
     var data = listOf<RepoItem>()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GitRepoViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.rv_item_repo,parent,false)
-
-        return GitRepoViewHolder(view)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepoViewHolder {
+        val layoutInflater = LayoutInflater.from(parent.context)
+        val binding = RvItemRepoBinding.inflate(layoutInflater)
+        return RepoViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
         return data.size
     }
 
-    override fun onBindViewHolder(holder: GitRepoViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RepoViewHolder, position: Int) {
         holder.bind(data[position])
     }
 }

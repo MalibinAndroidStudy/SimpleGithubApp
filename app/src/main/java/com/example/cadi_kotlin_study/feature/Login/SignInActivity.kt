@@ -6,80 +6,35 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import com.example.cadi_kotlin_study.DB.Login
+import androidx.databinding.BindingAdapter
+import androidx.databinding.DataBindingUtil
+import com.example.cadi_kotlin_study.DB.LoginDB
+import com.example.cadi_kotlin_study.MainActivity
 import com.example.cadi_kotlin_study.R
-import com.example.cadi_kotlin_study.feature.follower_list.FollowerListActivity
+import com.example.cadi_kotlin_study.databinding.ActivitySignInBinding
 import kotlinx.android.synthetic.main.activity_sign_in.*
 
 class SignInActivity : AppCompatActivity() {
+    private lateinit var binding: ActivitySignInBinding
 
-    val REQUEST_CODE_LOGIN_ACTIVITY =1000
+    companion object {
+        private const val REQUEST_CODE_LOGIN_ACTIVITY = 1000
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_in)
+        //setContentView(R.layout.activity_sign_in)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_sign_in)
 
-        // 자동로그인
-        val id = Login.getUser(this)
-        if(id.isNotEmpty()){
-            val intent = Intent(this, FollowerListActivity::class.java)
-            // id 함께 전달
-            intent.putExtra("id", id)
-            startActivity(intent)
-        }
-
-        // 회원가입버튼 클릭
-        btnSignUp?.setOnClickListener(
-            object : View.OnClickListener {
-                override fun onClick(view : View?) {
-                    // 회원가입 페이지로 이동
-                    val intent = Intent(this@SignInActivity, SignUpActivity::class.java)
-                    startActivityForResult(intent,REQUEST_CODE_LOGIN_ACTIVITY)
-                }
-            }
-        )
-
-        // 로그인버튼 클릭
-        btnSignIn?.setOnClickListener {
-            val id = edtSignInId?.text.toString()
-            val pw = edtSignInPw?.text.toString()
-
-            // ID와 PW 비었는지 검사
-            if (id.isEmpty()) {
-                Toast.makeText(this, "아이디를 입력해주세요.", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-            else if(pw.isEmpty()){
-                Toast.makeText(this, "비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-
-            // 로그인 요청
-            val response = requestLogin(id, pw)
-
-            // 로그인 성공
-            if (response) {
-                // 로그인 정보 저장
-                Login.setUser(this,id)
-                // 팔로워 페이지로 이동
-                val intent = Intent(this, FollowerListActivity::class.java)
-                // id 함께 전달
-                intent.putExtra("id", id)
-                startActivity(intent)
-            }
-            else { // 로그인 실패
-                Toast.makeText(this, "로그인에 실패했습니다.", Toast.LENGTH_SHORT).show()
-                edtSignInId?.requestFocus()
-            }
-        }
+        autoLogin()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode==REQUEST_CODE_LOGIN_ACTIVITY){
-            if(resultCode== Activity.RESULT_OK){
-                val id=data!!.getStringExtra("Id")
-                val pw=data!!.getStringExtra("Pw")
+        if (requestCode == REQUEST_CODE_LOGIN_ACTIVITY) {
+            if (resultCode == Activity.RESULT_OK) {
+                val id = data?.getStringExtra("Id")
+                val pw = data?.getStringExtra("Pw")
                 edtSignInId?.setText(id)
                 edtSignInPw?.setText(pw)
             }
@@ -88,5 +43,52 @@ class SignInActivity : AppCompatActivity() {
 
     private fun requestLogin(id: String, pw: String): Boolean {
         return true
+    }
+
+    private fun autoLogin() {
+        val id = LoginDB.getUser(this)
+        if (id.isNotEmpty()) {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.putExtra("id", id)
+            startActivity(intent)
+        }
+    }
+
+    fun signUpClick() {
+        val intent = Intent(this@SignInActivity, SignUpActivity::class.java)
+        startActivityForResult(intent, REQUEST_CODE_LOGIN_ACTIVITY)
+    }
+
+    fun signInClick() {
+        val id = binding.edtSignInId?.text.toString()
+        val pw = binding.edtSignInPw?.text.toString()
+
+        emptyCheckLogin(id, pw)
+
+        Login(id, pw)
+    }
+
+    private fun emptyCheckLogin(id: String, pw: String) {
+        if (id.isEmpty()) {
+            Toast.makeText(this, "아이디를 입력해주세요.", Toast.LENGTH_SHORT).show()
+        } else if (pw.isEmpty()) {
+            Toast.makeText(this, "비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun Login(id: String, pw: String) {
+        val response = requestLogin(id, pw)
+
+        if (response) {
+            LoginDB.setUser(this, id)
+            val intent = Intent(this, MainActivity::class.java)
+            intent.putExtra("id", id)
+            startActivity(intent)
+        }
+        //TODO: else 사용xx 어떻게 처리?
+        else {
+            Toast.makeText(this, "로그인에 실패했습니다.", Toast.LENGTH_SHORT).show()
+            edtSignInId?.requestFocus()
+        }
     }
 }
