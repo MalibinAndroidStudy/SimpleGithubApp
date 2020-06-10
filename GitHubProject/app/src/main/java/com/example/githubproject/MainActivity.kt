@@ -3,16 +3,14 @@ package com.example.githubproject
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
-import androidx.navigation.ui.setupWithNavController
-import com.example.githubproject.home.HomeFragment
-import com.example.githubproject.notifications.NotificationsFragment
-import com.example.githubproject.search.SearchFragment
+import com.example.githubproject.ui.home.FragmentHome
+import com.example.githubproject.ui.notifications.NotificationsFragment
+import com.example.githubproject.ui.search.SearchFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
-    private val fragmentHome = HomeFragment()
+    private val fragmentHome = FragmentHome()
     private val fragmentNotification = NotificationsFragment()
     private val fragmentSearch = SearchFragment()
     private var active : Fragment = fragmentHome

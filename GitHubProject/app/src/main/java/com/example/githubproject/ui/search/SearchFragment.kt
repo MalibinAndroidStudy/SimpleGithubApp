@@ -1,4 +1,4 @@
-package com.example.githubproject.search
+package com.example.githubproject.ui.search
 
 import android.os.Bundle
 import android.view.LayoutInflater

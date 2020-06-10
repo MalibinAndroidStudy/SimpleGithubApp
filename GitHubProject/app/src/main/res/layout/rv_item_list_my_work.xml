@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+    <data>
 
+        <import type="android.view.View"/>
 
-<!--    <data>-->
-<!--        <variable-->
-<!--            name="bind"-->
-<!--            type=""/>-->
-<!--    </data>-->
+        <variable
+            name="bind"
+            type="com.example.githubproject.data.GithubMyWork"/>
+    </data>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="60dp"
@@ -19,6 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:src="@drawable/noun_repository"
+        app:imageUrl="@{bind.profile}"
         android:layout_marginLeft="20dp"
         />
     <TextView
@@ -28,6 +30,8 @@
         app:layout_constraintStart_toEndOf="@+id/img_rv_item_my_work"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:lines="2"
+        app:imageUrl="@{bind.name}"
         android:text="Issues"
         android:textSize="25dp"
         />
