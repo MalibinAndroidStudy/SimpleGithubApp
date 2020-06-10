@@ -9,8 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".feature.repository_list.RepoListActivity"></activity>
-        <activity android:name=".feature.follower_list.FollowerListActivity" />
         <activity android:name=".feature.Login.SignInActivity">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />

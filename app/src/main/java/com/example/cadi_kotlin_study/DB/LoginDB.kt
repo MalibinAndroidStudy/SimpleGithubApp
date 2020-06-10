@@ -2,7 +2,7 @@ package com.example.cadi_kotlin_study.DB
 
 import android.content.Context
 
-object Login{
+object LoginDB{
     private const val LOGIN_KEY = "login"
     private const val USER_KEY="user"
 

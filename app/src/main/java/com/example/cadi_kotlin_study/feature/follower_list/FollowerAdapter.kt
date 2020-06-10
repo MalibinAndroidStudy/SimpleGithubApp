@@ -7,16 +7,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cadi_kotlin_study.R
 import com.example.cadi_kotlin_study.data.follower.FollowerItem
+import com.example.cadi_kotlin_study.databinding.RvItemFollowerBinding
 
-class FollowerAdapter(private val context: Context) : RecyclerView.Adapter<FollowerViewHolder>() {
+class FollowerAdapter(private val context: Context?) : RecyclerView.Adapter<FollowerViewHolder>() {
     var data: List<FollowerItem> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FollowerViewHolder {
-        // list item follower.xml을 객체화 한다(inflate 한다).
-        val view: View = LayoutInflater
-            .from(context)
-            .inflate(R.layout.rv_item_follower, parent, false)
-        return FollowerViewHolder(view)
+        val layoutInflater = LayoutInflater.from(parent.context)
+        val binding = RvItemFollowerBinding.inflate(layoutInflater)
+        return FollowerViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
