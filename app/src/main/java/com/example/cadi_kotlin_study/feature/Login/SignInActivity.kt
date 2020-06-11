@@ -1,12 +1,10 @@
-package com.example.cadi_kotlin_study.feature.Login
+package com.example.cadi_kotlin_study.feature.login
 
 import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
-import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
 import com.example.cadi_kotlin_study.DB.LoginDB
 import com.example.cadi_kotlin_study.MainActivity
@@ -65,7 +63,7 @@ class SignInActivity : AppCompatActivity() {
 
         emptyCheckLogin(id, pw)
 
-        Login(id, pw)
+        userLogin(id, pw)
     }
 
     private fun emptyCheckLogin(id: String, pw: String) {
@@ -76,7 +74,7 @@ class SignInActivity : AppCompatActivity() {
         }
     }
 
-    private fun Login(id: String, pw: String) {
+    private fun userLogin(id: String, pw: String) {
         val response = requestLogin(id, pw)
 
         if (response) {

@@ -1,4 +1,4 @@
-package com.example.cadi_kotlin_study.feature.Login
+package com.example.cadi_kotlin_study.feature.login
 
 import android.app.Activity
 import android.content.Intent
@@ -8,7 +8,6 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.cadi_kotlin_study.R
 import com.example.cadi_kotlin_study.databinding.ActivitySignUpBinding
-import kotlinx.android.synthetic.main.activity_sign_up.*
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
@@ -29,9 +28,11 @@ class SignUpActivity : AppCompatActivity() {
         val pw = binding.edtSignUpPw?.text.toString()
         val pwCk = binding.edtSignUpPwCk?.text.toString()
 
+
         emptyCheckInfo(name,id, pw, pwCk)
 
-        signUp(name,id,pw)
+        usersignUp(name,id,pw)
+
     }
 
     private fun emptyCheckInfo(name: String,id: String,pw: String,pwCk:String){
@@ -44,7 +45,7 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
-    private fun signUp(name: String,id: String,pw: String){
+    private fun usersignUp(name: String,id: String,pw: String){
         val response = requestSignup(name, id, pw)
 
         if (response) {

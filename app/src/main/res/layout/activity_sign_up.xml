@@ -3,7 +3,7 @@
     <data>
         <variable
             name="signUp"
-            type="com.example.cadi_kotlin_study.feature.Login.SignUpActivity" />
+            type="com.example.cadi_kotlin_study.feature.login.SignUpActivity" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -11,7 +11,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".feature.Login.SignUpActivity">
+    tools:context=".feature.login.SignUpActivity">
 
     <ImageView
         android:id="@+id/imageView"
