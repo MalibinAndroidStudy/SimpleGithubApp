@@ -1,13 +1,13 @@
 package com.example.simplegithubapp.follow
 
-import android.content.Context
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.simplegithubapp.databinding.RvItemFollowerBinding
 
 
-class FollowAdapter(private val context: Context) : RecyclerView.Adapter<FollowHolder>() {
+class FollowAdapter() : RecyclerView.Adapter<FollowHolder>() {
     lateinit var data: ArrayList<RvItemFollow>
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FollowHolder {

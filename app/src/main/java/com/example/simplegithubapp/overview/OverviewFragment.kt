@@ -5,20 +5,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.simplegithubapp.R
+import com.example.simplegithubapp.databinding.FragmentOverviewBinding
 
 class OverviewFragment : Fragment() {
+
+    private lateinit var binding:FragmentOverviewBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_overview, container, false)
+        //inflater.inflate(R.layout.fragment_overview, container, false)
+        binding=FragmentOverviewBinding.inflate(inflater,container,false)
+        return binding.root
     }
 }

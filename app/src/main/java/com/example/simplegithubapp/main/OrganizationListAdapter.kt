@@ -26,8 +26,7 @@ class OrganizationListAdapter : ListAdapter<ImgOrganization, OrganizationListAda
         holder.bind(item)
     }
 
-    inner class OrganizationHolder(view: View, var context: Context) :
-        RecyclerView.ViewHolder(view) {
+    inner class OrganizationHolder(view: View, var context: Context) : RecyclerView.ViewHolder(view) {
         val imgOrganization: ImageView = view.findViewById(R.id.img_rv_item_organizations)
 
         fun bind(data: ImgOrganization) {
@@ -40,10 +39,7 @@ class OrganizationListAdapter : ListAdapter<ImgOrganization, OrganizationListAda
             return oldItem.img == newItem.img
         }
 
-        override fun areContentsTheSame(
-            oldItem: ImgOrganization,
-            newItem: ImgOrganization
-        ): Boolean {
+        override fun areContentsTheSame(oldItem: ImgOrganization, newItem: ImgOrganization): Boolean {
             return oldItem == newItem
         }
 

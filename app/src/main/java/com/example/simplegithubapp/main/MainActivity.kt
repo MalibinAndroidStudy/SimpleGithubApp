@@ -22,7 +22,13 @@ class MainActivity : AppCompatActivity() {
 
         //tab layout viewpager  연결
         val menuPagerAdapter = MenuPagerAdapter(supportFragmentManager)
-        val fragments = arrayListOf<Fragment>(OverviewFragment(), RepositoriesFragment(), ProjectsFragment(),FollowersFragment(), FollowingFragment())
+        val fragments = arrayListOf<Fragment>(
+            OverviewFragment(),
+            RepositoriesFragment(),
+            ProjectsFragment(),
+            FollowersFragment(),
+            FollowingFragment()
+        )
         menuPagerAdapter.mData = fragments
         pager_menu.adapter = menuPagerAdapter
         tabLayout.setupWithViewPager(pager_menu)
