@@ -2,6 +2,7 @@ package com.example.simplegithubapp.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
@@ -12,6 +13,7 @@ import com.example.simplegithubapp.overview.OverviewFragment
 import com.example.simplegithubapp.project.ProjectsFragment
 import com.example.simplegithubapp.repository.RepositoriesFragment
 import kotlinx.android.synthetic.main.activity_main.*
+import java.lang.Thread.sleep
 
 class MainActivity : AppCompatActivity() {
 
@@ -69,5 +71,9 @@ class MainActivity : AppCompatActivity() {
         )
         rvOrganizationListAdapter.submitList(listData)
 
+        Thread{
+            Log.e("Thread","쓰레드다")
+            sleep(5000)
+        }.start()
     }
 }
