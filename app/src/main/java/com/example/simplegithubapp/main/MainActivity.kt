@@ -55,6 +55,16 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
+        organizationInit()
+
+        Thread{
+            Log.e("Thread","쓰레드다")
+            sleep(5000)
+        }.start()
+    }
+
+
+    fun organizationInit(){
         //organization
         rv_organizations.layoutManager = GridLayoutManager(this, 4)
         val rvOrganizationListAdapter = OrganizationListAdapter()
@@ -70,10 +80,5 @@ class MainActivity : AppCompatActivity() {
             ImgOrganization(R.drawable.yuwol)
         )
         rvOrganizationListAdapter.submitList(listData)
-
-        Thread{
-            Log.e("Thread","쓰레드다")
-            sleep(5000)
-        }.start()
     }
 }
