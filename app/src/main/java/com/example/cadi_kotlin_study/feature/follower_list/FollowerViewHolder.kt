@@ -11,8 +11,8 @@ import com.example.cadi_kotlin_study.databinding.RvItemFollowerBinding
 
 class FollowerViewHolder(val binding: RvItemFollowerBinding) : RecyclerView.ViewHolder(binding.root) {
 
-    fun onBind(user: FollowerItem) {
-        binding.rvFollower = user
+    fun onBind(follower: FollowerItem) {
+        binding.rvFollower = follower
 
         // 아이템 클릭 시, 해당 팔로워 레포리스트 화면으로 이동
 //        itemView.setOnClickListener {

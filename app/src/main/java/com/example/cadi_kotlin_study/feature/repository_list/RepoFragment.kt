@@ -12,24 +12,26 @@ import com.example.cadi_kotlin_study.data.repository.DummyRepo
 import kotlinx.android.synthetic.main.fragment_repo.*
 
 class RepoFragment : Fragment() {
-    private lateinit var gitRepoAdapter : RepoAdapter
+    private lateinit var gitRepoAdapter : RepoListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        gitRepoAdapter = RepoAdapter(context)
+        repoInit()
+    }
+
+    private fun repoInit(){
+        gitRepoAdapter = RepoListAdapter()
 
         rv_repo_list.adapter = gitRepoAdapter
 
         rv_repo_list.layoutManager = LinearLayoutManager(context)
 
-        gitRepoAdapter.data = DummyRepo.getRepoList()
-
-        gitRepoAdapter.notifyDataSetChanged()
+        gitRepoAdapter.submitList(DummyRepo.getRepoList())
     }
 
     override fun onCreateView(

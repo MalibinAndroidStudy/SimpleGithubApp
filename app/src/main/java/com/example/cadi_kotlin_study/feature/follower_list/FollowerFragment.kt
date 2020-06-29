@@ -13,31 +13,32 @@ import kotlinx.android.synthetic.main.fragment_follower.*
 
 
 class FollowerFragment : Fragment() {
-    private lateinit var followerAdapter : FollowerAdapter
+    private lateinit var followerListAdapter : FollowerListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        followerAdapter = FollowerAdapter(context)
+        followerInit()
+    }
 
-        rv_follower_list.adapter = followerAdapter
+    private fun followerInit(){
+        followerListAdapter = FollowerListAdapter()
+
+        rv_follower_list.adapter = followerListAdapter
 
         rv_follower_list.layoutManager = LinearLayoutManager(context)
 
-        followerAdapter.data = DummyFollower.getFollowerList()
-
-        followerAdapter.notifyDataSetChanged()
+        followerListAdapter.submitList(DummyFollower.getFollowerList())
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_follower, container, false)
     }
 }

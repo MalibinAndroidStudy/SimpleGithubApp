@@ -10,7 +10,7 @@ import com.example.cadi_kotlin_study.databinding.RvItemRepoBinding
 
 class RepoViewHolder (val binding: RvItemRepoBinding) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(data: RepoItem){
-        binding.rvRepo = data
+    fun onbind(repo: RepoItem){
+        binding.rvRepo = repo
     }
 }
