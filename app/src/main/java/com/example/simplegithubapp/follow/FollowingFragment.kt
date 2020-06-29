@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.fragment_following.*
 
 class FollowingFragment : Fragment() {
     private lateinit var binding:FragmentFollowingBinding
-    private lateinit var rvFollowingAdapter: FollowAdapter
+    private lateinit var rvFollowingAdapter: FollowListAdpater
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,18 +36,18 @@ class FollowingFragment : Fragment() {
 
     private fun initFollowing(){
         rv_followering?.layoutManager = LinearLayoutManager(context)
-        rvFollowingAdapter = FollowAdapter()
+        rvFollowingAdapter = FollowListAdpater()
         rv_followering?.adapter = rvFollowingAdapter
-        rvFollowingAdapter.data = arrayListOf(
+        rvFollowingAdapter.submitList(   arrayListOf(
             RvItemFollow(R.drawable.ggami, "ggami", "Follow"),
             RvItemFollow(R.drawable.ggami, "ggami", "Follow"),
             RvItemFollow(R.drawable.ggami, "ggami", "Follow"),
             RvItemFollow(R.drawable.ggami, "ggami", "Follow"),
             RvItemFollow(R.drawable.ggami, "ggami", "Follow"),
-            RvItemFollow(R.drawable.ggami, "ggami", "Follow")
+            RvItemFollow(R.drawable.ggami, "ggami", "Follow") )
 
         )
-        rvFollowingAdapter.notifyDataSetChanged()
+        // rvFollowingAdapter.notifyDataSetChanged()
     }
 
 }

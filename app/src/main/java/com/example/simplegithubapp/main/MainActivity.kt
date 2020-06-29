@@ -27,14 +27,13 @@ class MainActivity : AppCompatActivity() {
         val fragments = arrayListOf<Fragment>(
             OverviewFragment(),
             RepositoriesFragment(),
-            ProjectsFragment(),
             FollowersFragment(),
             FollowingFragment()
         )
         menuPagerAdapter.mData = fragments
         pager_menu.adapter = menuPagerAdapter
         tabLayout.setupWithViewPager(pager_menu)
-        val menu = arrayListOf("Overview", "Repositories", "Projects", "Followers", "Following")
+        val menu = arrayListOf("Overview", "Repositories",  "Followers", "Following")
         for (i in 0 until menu.size)
             tabLayout.getTabAt(i)?.text = menu[i]
 
