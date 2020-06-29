@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="rvRepository"
+            type="com.example.simplegithubapp.repository.RvItemRepository" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/txt_repository_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="@{rvRepository.name}"
+        android:textColor="@color/colorBlack"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_repository_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif-light"
+        android:text="@{rvRepository.desc}"
+        android:textColor="@color/colorBlack"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="@+id/txt_repository_name"
+        app:layout_constraintTop_toBottomOf="@+id/txt_repository_name" />
+
+    <ImageButton
+        android:id="@+id/img_repository_fork"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="6dp"
+        android:adjustViewBounds="false"
+        android:background="@color/colorWhite"
+        android:scaleType="centerInside"
+        app:layout_constraintStart_toStartOf="@+id/txt_repository_desc"
+        app:layout_constraintTop_toBottomOf="@+id/txt_repository_desc"
+        app:srcCompat="@drawable/git_branch" />
+
+    <TextView
+        android:id="@+id/txt_repository_fork_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:text="@{String.valueOf(rvRepository.forkNum)}"
+        app:layout_constraintBottom_toBottomOf="@+id/img_repository_fork"
+        app:layout_constraintStart_toEndOf="@+id/img_repository_fork"
+        app:layout_constraintTop_toTopOf="@+id/img_repository_fork" />
+
+    <ImageView
+        android:id="@+id/img_repoditory_language_color"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="15dp"
+        android:src="@{rvRepository.languageColor}"
+        app:layout_constraintBottom_toBottomOf="@+id/img_repository_fork"
+        app:layout_constraintStart_toEndOf="@+id/txt_repository_fork_num"
+        app:layout_constraintTop_toTopOf="@+id/img_repository_fork" />
+
+    <TextView
+        android:id="@+id/txt_repository_language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="@{rvRepository.language}"
+        app:layout_constraintBottom_toBottomOf="@+id/img_repoditory_language_color"
+        app:layout_constraintStart_toEndOf="@+id/img_repoditory_language_color"
+        app:layout_constraintTop_toTopOf="@+id/img_repoditory_language_color" />
+
+    <TextView
+        android:id="@+id/txt_repository_update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:text="@{String.valueOf(rvRepository.lastUpdate)}"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_repository_language"
+        app:layout_constraintStart_toEndOf="@+id/txt_repository_language"
+        app:layout_constraintTop_toTopOf="@+id/txt_repository_language" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/btn_repository_star"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txt_repository_update"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/txt_repository_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_marginEnd="3dp"
+            android:text="star"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_repository_star"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_repository_star"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/star_selected" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
